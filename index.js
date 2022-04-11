@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 4000;
+const frontEndUrl = process.env.FRONT_END_URL || "localhost:3000";
 
 //middlewares
 app.use(function (req, res, next) {
@@ -20,6 +21,7 @@ app.use(function (req, res, next) {
 
 //this will catch any route that doesn't exist
 app.get("*", (req, res) => {
+  console.log("endpoint reached");
   res.status(200).json("Endpoint Successful!");
 });
 
